@@ -56,8 +56,8 @@
     main {
       background-image: linear-gradient(
         var(--bg-tilt),
-        hsl(0, 0%, 100%) 30%,
-        var(--bg-color) 80%
+        hsl(0, 0%, 100%) 20%,
+        var(--bg-color) 90%
       );
 
       display: flex;
@@ -74,7 +74,7 @@
       font-family: "Courier New", Courier, monospace;
       background-size: 200% 200%;
       animation: moveBackground 10s linear infinite,
-        changeColorAndTilt 5s linear infinite;
+        changeColorAndTilt 25s linear infinite;
     }
 
     @keyframes moveBackground {
@@ -269,7 +269,11 @@
       const height = document.body.clientHeight;
       widthNode.innerText = width;
       heightNode.innerText = height;
-      aspectRatioNode.innerText = ` (${(width / height).toFixed(2)}:1)`;
+      const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+      const divisor = gcd(width, height);
+      const aspectWidth = width / divisor;
+      const aspectHeight = height / divisor;
+      aspectRatioNode.innerText = ` (${aspectWidth}:${aspectHeight})`;
     }
 
     window.addEventListener("resize", updateDimensions);
