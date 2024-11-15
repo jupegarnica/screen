@@ -3,34 +3,528 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Screen</title>
   </head>
   <style>
     :root {
-      /* --background-text: url(https://picsum.photos/id/870/200/300?grayscale&blur=2); */
-      /* --background-text: url(https://picsum.photos/200/300?blur=2); */
-      /* --background-text: -webkit-linear-gradient(pink, red); */
-
-      --background-text: linear-gradient(
-        135deg,
-        rgb(77, 47, 126) 30%,
-        #51327577 100%
-      );
-      --background: linear-gradient(
-        135deg,
-        #fff 30%,
-        #51327577 100%
-      );
+      --bg-color: hsl(225, 100%, 50%); /* Starting color: Cyan */
+      --bg-color-darker: hsl(240, 100%, 40%); /* Darker shade of Cyan */
+      --bg-tilt: 135deg;
     }
+    @keyframes changeColorAndTilt {
+      0% {
+        --bg-color: hsl(225, 100%, 50%); /* Cyan */
+        --bg-color-darker: hsl(240, 100%, 40%);
+        --bg-tilt: 135deg;
+      }
+      1% {
+        --bg-color: hsl(225, 100%, 50%); /* #0123ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0100cc */
+        --bg-tilt: 137.7deg;
+      }
+      2% {
+        --bg-color: hsl(226, 100%, 50%); /* #0224ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0200cc */
+        --bg-tilt: 140.4deg;
+      }
+      3% {
+        --bg-color: hsl(226, 100%, 50%); /* #0325ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0300cc */
+        --bg-tilt: 143.1deg;
+      }
+      4% {
+        --bg-color: hsl(226, 100%, 50%); /* #0426ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0400cc */
+        --bg-tilt: 145.8deg;
+      }
+      5% {
+        --bg-color: hsl(226, 100%, 50%); /* #0527ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0500cc */
+        --bg-tilt: 148.5deg;
+      }
+      6% {
+        --bg-color: hsl(226, 100%, 50%); /* #0628ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0600cc */
+        --bg-tilt: 151.2deg;
+      }
+      7% {
+        --bg-color: hsl(226, 100%, 50%); /* #0729ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0700cc */
+        --bg-tilt: 153.9deg;
+      }
+      8% {
+        --bg-color: hsl(226, 100%, 50%); /* #082aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0800cc */
+        --bg-tilt: 156.6deg;
+      }
+      9% {
+        --bg-color: hsl(226, 100%, 50%); /* #092bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0900cc */
+        --bg-tilt: 159.3deg;
+      }
+      10% {
+        --bg-color: hsl(226, 100%, 50%); /* #0a2cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0a00cc */
+        --bg-tilt: 162deg;
+      }
+      11% {
+        --bg-color: hsl(226, 100%, 50%); /* #0b2dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0b00cc */
+        --bg-tilt: 164.7deg;
+      }
+      12% {
+        --bg-color: hsl(226, 100%, 50%); /* #0c2eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0c00cc */
+        --bg-tilt: 167.4deg;
+      }
+      13% {
+        --bg-color: hsl(226, 100%, 50%); /* #0d2fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0d00cc */
+        --bg-tilt: 170.1deg;
+      }
+      14% {
+        --bg-color: hsl(226, 100%, 50%); /* #0e30ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0e00cc */
+        --bg-tilt: 172.8deg;
+      }
+      15% {
+        --bg-color: hsl(226, 100%, 50%); /* #0f31ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #0f00cc */
+        --bg-tilt: 175.5deg;
+      }
+      16% {
+        --bg-color: hsl(226, 100%, 50%); /* #1032ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1000cc */
+        --bg-tilt: 178.2deg;
+      }
+      17% {
+        --bg-color: hsl(226, 100%, 50%); /* #1133ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1100cc */
+        --bg-tilt: 180.9deg;
+      }
+      18% {
+        --bg-color: hsl(226, 100%, 50%); /* #1234ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1200cc */
+        --bg-tilt: 183.6deg;
+      }
+      19% {
+        --bg-color: hsl(226, 100%, 50%); /* #1335ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1300cc */
+        --bg-tilt: 186.3deg;
+      }
+      20% {
+        --bg-color: hsl(226, 100%, 50%); /* #1436ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1400cc */
+        --bg-tilt: 189deg;
+      }
+      21% {
+        --bg-color: hsl(226, 100%, 50%); /* #1537ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1500cc */
+        --bg-tilt: 191.7deg;
+      }
+      22% {
+        --bg-color: hsl(226, 100%, 50%); /* #1638ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1600cc */
+        --bg-tilt: 194.4deg;
+      }
+      23% {
+        --bg-color: hsl(226, 100%, 50%); /* #1739ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1700cc */
+        --bg-tilt: 197.1deg;
+      }
+      24% {
+        --bg-color: hsl(226, 100%, 50%); /* #183aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1800cc */
+        --bg-tilt: 199.8deg;
+      }
+      25% {
+        --bg-color: hsl(226, 100%, 50%); /* #193bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1900cc */
+        --bg-tilt: 202.5deg;
+      }
+      26% {
+        --bg-color: hsl(226, 100%, 50%); /* #1a3cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1a00cc */
+        --bg-tilt: 205.2deg;
+      }
+      27% {
+        --bg-color: hsl(226, 100%, 50%); /* #1b3dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1b00cc */
+        --bg-tilt: 207.9deg;
+      }
+      28% {
+        --bg-color: hsl(226, 100%, 50%); /* #1c3eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1c00cc */
+        --bg-tilt: 210.6deg;
+      }
+      29% {
+        --bg-color: hsl(226, 100%, 50%); /* #1d3fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1d00cc */
+        --bg-tilt: 213.3deg;
+      }
+      30% {
+        --bg-color: hsl(226, 100%, 50%); /* #1e40ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1e00cc */
+        --bg-tilt: 216deg;
+      }
+      31% {
+        --bg-color: hsl(226, 100%, 50%); /* #1f41ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #1f00cc */
+        --bg-tilt: 218.7deg;
+      }
+      32% {
+        --bg-color: hsl(226, 100%, 50%); /* #2042ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2000cc */
+        --bg-tilt: 221.4deg;
+      }
+      33% {
+        --bg-color: hsl(226, 100%, 50%); /* #2143ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2100cc */
+        --bg-tilt: 224.1deg;
+      }
+      34% {
+        --bg-color: hsl(226, 100%, 50%); /* #2244ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2200cc */
+        --bg-tilt: 226.8deg;
+      }
+      35% {
+        --bg-color: hsl(226, 100%, 50%); /* #2345ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2300cc */
+        --bg-tilt: 229.5deg;
+      }
+      36% {
+        --bg-color: hsl(226, 100%, 50%); /* #2446ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2400cc */
+        --bg-tilt: 232.2deg;
+      }
+      37% {
+        --bg-color: hsl(226, 100%, 50%); /* #2547ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2500cc */
+        --bg-tilt: 234.9deg;
+      }
+      38% {
+        --bg-color: hsl(226, 100%, 50%); /* #2648ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2600cc */
+        --bg-tilt: 237.6deg;
+      }
+      39% {
+        --bg-color: hsl(226, 100%, 50%); /* #2749ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2700cc */
+        --bg-tilt: 240.3deg;
+      }
+      40% {
+        --bg-color: hsl(226, 100%, 50%); /* #284aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2800cc */
+        --bg-tilt: 243deg;
+      }
+      41% {
+        --bg-color: hsl(226, 100%, 50%); /* #294bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2900cc */
+        --bg-tilt: 245.7deg;
+      }
+      42% {
+        --bg-color: hsl(226, 100%, 50%); /* #2a4cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2a00cc */
+        --bg-tilt: 248.4deg;
+      }
+      43% {
+        --bg-color: hsl(226, 100%, 50%); /* #2b4dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2b00cc */
+        --bg-tilt: 251.1deg;
+      }
+      44% {
+        --bg-color: hsl(226, 100%, 50%); /* #2c4eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2c00cc */
+        --bg-tilt: 253.8deg;
+      }
+      45% {
+        --bg-color: hsl(226, 100%, 50%); /* #2d4fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2d00cc */
+        --bg-tilt: 256.5deg;
+      }
+      46% {
+        --bg-color: hsl(226, 100%, 50%); /* #2e50ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2e00cc */
+        --bg-tilt: 259.2deg;
+      }
+      47% {
+        --bg-color: hsl(226, 100%, 50%); /* #2f51ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #2f00cc */
+        --bg-tilt: 261.9deg;
+      }
+      48% {
+        --bg-color: hsl(226, 100%, 50%); /* #3052ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3000cc */
+        --bg-tilt: 264.6deg;
+      }
+      49% {
+        --bg-color: hsl(226, 100%, 50%); /* #3153ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3100cc */
+        --bg-tilt: 267.3deg;
+      }
+      50% {
+        --bg-color: hsl(270, 100%, 50%); /* #9900ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6600cc */
+        --bg-tilt: 270deg;
+      }
+      51% {
+        --bg-color: hsl(270, 100%, 48%); /* #9701ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6500cc */
+        --bg-tilt: 267.3deg;
+      }
+      52% {
+        --bg-color: hsl(270, 100%, 48%); /* #9502ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6400cc */
+        --bg-tilt: 264.6deg;
+      }
+      53% {
+        --bg-color: hsl(270, 100%, 48%); /* #9303ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6300cc */
+        --bg-tilt: 261.9deg;
+      }
+      54% {
+        --bg-color: hsl(270, 100%, 48%); /* #9104ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6200cc */
+        --bg-tilt: 259.2deg;
+      }
+      55% {
+        --bg-color: hsl(270, 100%, 48%); /* #8f05ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6100cc */
+        --bg-tilt: 256.5deg;
+      }
+      56% {
+        --bg-color: hsl(270, 100%, 48%); /* #8d06ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #6000cc */
+        --bg-tilt: 253.8deg;
+      }
+      57% {
+        --bg-color: hsl(270, 100%, 48%); /* #8b07ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5f00cc */
+        --bg-tilt: 251.1deg;
+      }
+      58% {
+        --bg-color: hsl(270, 100%, 48%); /* #8908ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5e00cc */
+        --bg-tilt: 248.4deg;
+      }
+      59% {
+        --bg-color: hsl(270, 100%, 48%); /* #8709ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5d00cc */
+        --bg-tilt: 245.7deg;
+      }
+      60% {
+        --bg-color: hsl(270, 100%, 48%); /* #850aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5c00cc */
+        --bg-tilt: 243deg;
+      }
+      61% {
+        --bg-color: hsl(270, 100%, 48%); /* #830bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5b00cc */
+        --bg-tilt: 240.3deg;
+      }
+      62% {
+        --bg-color: hsl(270, 100%, 48%); /* #810cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5a00cc */
+        --bg-tilt: 237.6deg;
+      }
+      63% {
+        --bg-color: hsl(270, 100%, 48%); /* #7f0dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5900cc */
+        --bg-tilt: 234.9deg;
+      }
+      64% {
+        --bg-color: hsl(270, 100%, 48%); /* #7d0eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5800cc */
+        --bg-tilt: 232.2deg;
+      }
+      65% {
+        --bg-color: hsl(270, 100%, 48%); /* #7b0fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5700cc */
+        --bg-tilt: 229.5deg;
+      }
+      66% {
+        --bg-color: hsl(270, 100%, 48%); /* #7910ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5600cc */
+        --bg-tilt: 226.8deg;
+      }
+      67% {
+        --bg-color: hsl(270, 100%, 48%); /* #7711ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5500cc */
+        --bg-tilt: 224.1deg;
+      }
+      68% {
+        --bg-color: hsl(270, 100%, 48%); /* #7512ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5400cc */
+        --bg-tilt: 221.4deg;
+      }
+      69% {
+        --bg-color: hsl(270, 100%, 48%); /* #7313ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5300cc */
+        --bg-tilt: 218.7deg;
+      }
+      70% {
+        --bg-color: hsl(270, 100%, 48%); /* #7114ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5200cc */
+        --bg-tilt: 216deg;
+      }
+      71% {
+        --bg-color: hsl(270, 100%, 48%); /* #6f15ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5100cc */
+        --bg-tilt: 213.3deg;
+      }
+      72% {
+        --bg-color: hsl(270, 100%, 48%); /* #6d16ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #5000cc */
+        --bg-tilt: 210.6deg;
+      }
+      73% {
+        --bg-color: hsl(270, 100%, 48%); /* #6b17ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4f00cc */
+        --bg-tilt: 207.9deg;
+      }
+      74% {
+        --bg-color: hsl(270, 100%, 48%); /* #6918ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4e00cc */
+        --bg-tilt: 205.2deg;
+      }
+      75% {
+        --bg-color: hsl(270, 100%, 48%); /* #6719ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4d00cc */
+        --bg-tilt: 202.5deg;
+      }
+      76% {
+        --bg-color: hsl(270, 100%, 48%); /* #651aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4c00cc */
+        --bg-tilt: 199.8deg;
+      }
+      77% {
+        --bg-color: hsl(270, 100%, 48%); /* #631bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4b00cc */
+        --bg-tilt: 197.1deg;
+      }
+      78% {
+        --bg-color: hsl(270, 100%, 48%); /* #611cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4a00cc */
+        --bg-tilt: 194.4deg;
+      }
+      79% {
+        --bg-color: hsl(270, 100%, 48%); /* #5f1dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4900cc */
+        --bg-tilt: 191.7deg;
+      }
+      80% {
+        --bg-color: hsl(270, 100%, 48%); /* #5d1eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4800cc */
+        --bg-tilt: 189deg;
+      }
+      81% {
+        --bg-color: hsl(270, 100%, 48%); /* #5b1fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4700cc */
+        --bg-tilt: 186.3deg;
+      }
+      82% {
+        --bg-color: hsl(270, 100%, 48%); /* #5920ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4600cc */
+        --bg-tilt: 183.6deg;
+      }
+      83% {
+        --bg-color: hsl(270, 100%, 48%); /* #5721ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4500cc */
+        --bg-tilt: 180.9deg;
+      }
+      84% {
+        --bg-color: hsl(270, 100%, 48%); /* #5522ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4400cc */
+        --bg-tilt: 178.2deg;
+      }
+      85% {
+        --bg-color: hsl(270, 100%, 48%); /* #5323ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4300cc */
+        --bg-tilt: 175.5deg;
+      }
+      86% {
+        --bg-color: hsl(270, 100%, 48%); /* #5124ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4200cc */
+        --bg-tilt: 172.8deg;
+      }
+      87% {
+        --bg-color: hsl(270, 100%, 48%); /* #4f25ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4100cc */
+        --bg-tilt: 170.1deg;
+      }
+      88% {
+        --bg-color: hsl(270, 100%, 48%); /* #4d26ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #4000cc */
+        --bg-tilt: 167.4deg;
+      }
+      89% {
+        --bg-color: hsl(270, 100%, 48%); /* #4b27ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3f00cc */
+        --bg-tilt: 164.7deg;
+      }
+      90% {
+        --bg-color: hsl(270, 100%, 48%); /* #4928ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3e00cc */
+        --bg-tilt: 162deg;
+      }
+      91% {
+        --bg-color: hsl(270, 100%, 48%); /* #4729ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3d00cc */
+        --bg-tilt: 159.3deg;
+      }
+      92% {
+        --bg-color: hsl(270, 100%, 48%); /* #452aff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3c00cc */
+        --bg-tilt: 156.6deg;
+      }
+      93% {
+        --bg-color: hsl(270, 100%, 48%); /* #432bff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3b00cc */
+        --bg-tilt: 153.9deg;
+      }
+      94% {
+        --bg-color: hsl(270, 100%, 48%); /* #412cff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3a00cc */
+        --bg-tilt: 151.2deg;
+      }
+      95% {
+        --bg-color: hsl(270, 100%, 48%); /* #3f2dff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3900cc */
+        --bg-tilt: 148.5deg;
+      }
+      96% {
+        --bg-color: hsl(270, 100%, 48%); /* #3d2eff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3800cc */
+        --bg-tilt: 145.8deg;
+      }
+      97% {
+        --bg-color: hsl(270, 100%, 48%); /* #3b2fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3700cc */
+        --bg-tilt: 143.1deg;
+      }
+      98% {
+        --bg-color: hsl(270, 100%, 48%); /* #392fff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3600cc */
+        --bg-tilt: 140.4deg;
+      }
+      99% {
+        --bg-color: hsl(270, 100%, 48%); /* #3730ff */
+        --bg-color-darker: hsl(240, 100%, 40%); /* #3500cc */
+        --bg-tilt: 137.7deg;
+      }
+      100% {
+        --bg-color: hsl(225, 100%, 50%); /* Cyan */
+        --bg-color-darker: hsl(240, 100%, 40%);
+        --bg-tilt: 135deg;
+      }
+    }
+
     body {
       margin: 0;
     }
     main {
-      background: var(--background);
+      background-image: linear-gradient(var(--bg-tilt), hsl(0, 0%, 100%) 30%, var(--bg-color) 80%);
 
       display: flex;
       flex-direction: column;
@@ -43,9 +537,23 @@
       font-weight: 800;
       font-size: 10vmin;
       font-size: clamp(20px, 10vmin, 150px);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-        'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-size: 200% 200%;
+      animation: moveBackground 10s linear infinite,
+        changeColorAndTilt 5s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .size {
@@ -55,9 +563,14 @@
     .slot,
     .slot span,
     .size {
-      background-image: var(--background-text);
+      background-image: linear-gradient(
+        135deg,
+        var(--bg-color-darker) 30%,
+        var(--bg-color) 100%
+      );
       background-clip: text;
       -webkit-background-clip: text;
+
       color: transparent;
     }
     .fullscreen {
@@ -84,11 +597,10 @@
     .toggle:before,
     .slot__label,
     .curtain {
-      transition-property: background-color, transform,
-        visibility;
+      transition-property: background-color, transform, visibility;
       transition-duration: 0.25s;
-      transition-timing-function: ease-in,
-        cubic-bezier(0.6, 0.2, 0.4, 1.5), linear;
+      transition-timing-function: ease-in, cubic-bezier(0.6, 0.2, 0.4, 1.5),
+        linear;
     }
     .toggle:before,
     .slot,
@@ -101,7 +613,7 @@
     }
     .toggle:checked,
     .curtain {
-      background-color: white;
+      background-color: hsl(0, 0%, 100%);
       background-image: var(--background-text);
     }
     .toggle:focus {
@@ -124,7 +636,7 @@
     .toggle:before {
       background: currentColor;
       border-radius: 50%;
-      content: '';
+      content: "";
       top: 0.2em;
       left: 0.2em;
       width: 1.1em;
@@ -197,7 +709,7 @@
     </main>
   </body>
   <script>
-    const mainNode = document.querySelector('body');
+    const mainNode = document.querySelector("body");
 
     function fullscreen() {
       if (!document.fullscreenElement) {
@@ -206,9 +718,9 @@
         document.exitFullscreen();
       }
     }
-    const widthNode = document.querySelector('.width');
-    const heightNode = document.querySelector('.height');
-    window.addEventListener('resize', () => {
+    const widthNode = document.querySelector(".width");
+    const heightNode = document.querySelector(".height");
+    window.addEventListener("resize", () => {
       widthNode.innerText = document.body.clientWidth;
       heightNode.innerText = document.body.clientHeight;
     });
